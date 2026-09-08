@@ -1,0 +1,6 @@
+# base: ../default.yaml  —  GPU + BraTS
+base: ../default.yaml
+
+model: paper
+loss: focal
+out_dir: outputs/focal

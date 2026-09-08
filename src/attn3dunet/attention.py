@@ -38,3 +38,36 @@ class AttentionGate3D(nn.Module):
         if att.shape[2:] != x.shape[2:]:
             att = F.interpolate(att, size=x.shape[2:], mode="trilinear", align_corners=False)
         return x * att
+
+
+class IdentityGate(nn.Module):
+    def forward(self, x: torch.Tensor, g: torch.Tensor) -> torch.Tensor:
+        return x
+
+
+class SE3D(nn.Module):
+    """Channel squeeze-and-excitation on the skip (alternative to attention gates)."""
+
+    def __init__(self, channels: int, reduction: int = 8) -> None:
+        super().__init__()
+        hidden = max(channels // reduction, 4)
+        self.fc = nn.Sequential(
+            nn.AdaptiveAvgPool3d(1),
+            nn.Conv3d(channels, hidden, 1),
+            nn.ReLU(inplace=True),
+            nn.Conv3d(hidden, channels, 1),
+            nn.Sigmoid(),
+        )
+
+    def forward(self, x: torch.Tensor, g: torch.Tensor = None) -> torch.Tensor:
+        return x * self.fc(x)
+
+
+def make_skip_filter(kind: str, in_x: int, in_g: int) -> nn.Module:
+    if kind == "gate":
+        return AttentionGate3D(in_x, in_g, inter=max(in_x // 2, 4))
+    if kind == "se":
+        return SE3D(in_x)
+    if kind in ("none", "off", "identity"):
+        return IdentityGate()
+    raise ValueError(f"unknown attention kind: {kind}")

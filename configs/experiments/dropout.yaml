@@ -1,0 +1,6 @@
+# base: ../default.yaml  —  GPU + BraTS
+base: ../default.yaml
+
+model: paper
+dropout: 0.2
+out_dir: outputs/dropout

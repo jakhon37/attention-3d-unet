@@ -1,0 +1,6 @@
+# base: ../default.yaml  —  GPU + BraTS
+base: ../default.yaml
+
+model: paper
+loss: bce
+out_dir: outputs/paper

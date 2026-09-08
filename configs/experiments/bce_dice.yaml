@@ -1,0 +1,6 @@
+# base: ../default.yaml  —  GPU + BraTS
+base: ../default.yaml
+
+model: paper
+loss: bce_dice
+out_dir: outputs/bce_dice

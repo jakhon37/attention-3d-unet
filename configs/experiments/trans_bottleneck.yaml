@@ -1,0 +1,6 @@
+# base: ../default.yaml  —  GPU + BraTS
+base: ../default.yaml
+
+model: trans_bottleneck
+bottleneck: transformer
+out_dir: outputs/trans_bottleneck

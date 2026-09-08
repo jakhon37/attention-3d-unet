@@ -1,6 +1,13 @@
-# Paper training recipe (Sensors 2022, §4.3). BraTS-2020, 240×240×155, four modalities.
+# Paper training recipe (Sensors 2022, §4.3). BraTS-2020, four modalities.
 seed: 0
 device: cuda
+model: paper
+skip: fullscale
+attention: gate
+bottleneck: conv
+deep_supervision: false
+dropout: 0.0
+augment: false
 in_channels: 4
 out_channels: 1
 width_mult: 1.0
@@ -16,5 +23,5 @@ size: [128, 128, 128]
 brats_root: data/brats2020
 synthetic: false
 num_workers: 4
-out_dir: outputs/brats
+out_dir: outputs/paper
 pretrained: true

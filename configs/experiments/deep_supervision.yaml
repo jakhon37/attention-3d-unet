@@ -1,0 +1,6 @@
+# base: ../default.yaml  —  GPU + BraTS
+base: ../default.yaml
+
+model: deep_supervision
+deep_supervision: true
+out_dir: outputs/deep_supervision

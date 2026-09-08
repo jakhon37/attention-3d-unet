@@ -39,6 +39,14 @@ PYTHONPATH=src pytest tests -q
 PYTHONPATH=src python scripts/train.py --config configs/small.yaml
 ```
 
+## Experiments
+
+The paper method is one config. The rest are trials (ablations, other losses, SE skips, transformer bottleneck, deep supervision, augmentation). They may beat the paper or lose. See [EXPERIMENTS.md](EXPERIMENTS.md).
+
+```bash
+PYTHONPATH=src python scripts/train.py --config configs/experiments/bce_dice.yaml
+```
+
 ## Metrics
 
 Dice, precision, recall, Hausdorff — Table 1. Pretrained whole-tumor Dice **0.8974**, HD **5.76**.
@@ -46,10 +54,10 @@ Dice, precision, recall, Hausdorff — Table 1. Pretrained whole-tumor Dice **0.
 ## Layout
 
 ```
-src/attn3dunet/   model, data, train, metrics
-experiments/      architecture variants
-data/             sample NIfTI volumes
-configs/
+src/attn3dunet/           model, data, train, metrics
+configs/experiments/      paper + extra trials
+experiments/              earlier architecture scripts
+data/                     sample NIfTI volumes
 tests/
 scripts/
 ```

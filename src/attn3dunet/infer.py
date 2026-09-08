@@ -7,27 +7,23 @@ from pathlib import Path
 
 import torch
 
-from .model import Attention3DUNet
+from .factory import build_model
 from .train import load_config
 
 
-def load_checkpoint(path: str, device: torch.device) -> Attention3DUNet:
+def load_checkpoint(path: str, device: torch.device):
     ckpt = torch.load(path, map_location=device)
     cfg = ckpt.get("cfg", {})
-    model = Attention3DUNet(
-        in_channels=int(cfg.get("in_channels", 4)),
-        out_channels=int(cfg.get("out_channels", 1)),
-        width_mult=float(cfg.get("width_mult", 1.0)),
-        fusion_channels=int(cfg.get("fusion_channels", 64)),
-    )
+    model = build_model(cfg)
     model.load_state_dict(ckpt["model"])
     model.to(device).eval()
     return model
 
 
-def predict(model: Attention3DUNet, image: torch.Tensor, thresh: float = 0.5) -> torch.Tensor:
+def predict(model, image: torch.Tensor, thresh: float = 0.5) -> torch.Tensor:
     with torch.no_grad():
-        logits = model(image)
+        out = model(image)
+        logits = out[0] if isinstance(out, tuple) else out
         return (torch.sigmoid(logits) > thresh).float()
 
 

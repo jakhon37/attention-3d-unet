@@ -1,0 +1,6 @@
+# base: ../default.yaml  —  GPU + BraTS
+base: ../default.yaml
+
+model: no_fullscale
+skip: unet
+out_dir: outputs/no_fullscale

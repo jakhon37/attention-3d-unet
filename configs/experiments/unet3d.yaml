@@ -1,0 +1,5 @@
+# base: ../default.yaml  —  GPU + BraTS
+base: ../default.yaml
+
+model: unet3d
+out_dir: outputs/unet3d

@@ -1,6 +1,7 @@
 # Small synthetic run (no BraTS). Use configs/default.yaml for the paper recipe.
 seed: 0
 device: cpu
+model: paper
 in_channels: 4
 out_channels: 1
 width_mult: 0.25

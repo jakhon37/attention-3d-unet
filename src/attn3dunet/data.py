@@ -50,6 +50,30 @@ class SyntheticBraTS(Dataset):
         }
 
 
+class RandomFlipIntensity:
+    """Axis flips + small intensity jitter. Paper §6 said classic aug did not help;
+    this trial checks that again with a light 3D set."""
+
+    def __init__(self, inner: Dataset) -> None:
+        self.inner = inner
+
+    def __len__(self) -> int:
+        return len(self.inner)
+
+    def __getitem__(self, idx: int) -> dict:
+        item = dict(self.inner[idx])
+        img, mask = item["image"], item["mask"]
+        for dim in (1, 2, 3):
+            if torch.rand(()) > 0.5:
+                img = torch.flip(img, [dim])
+                mask = torch.flip(mask, [dim])
+        scale = 0.9 + 0.2 * float(torch.rand(()))
+        img = img * scale + 0.05 * torch.randn_like(img)
+        item["image"] = img
+        item["mask"] = mask
+        return item
+
+
 class BraTS2020(Dataset):
     """Folder-per-case BraTS 2020 layout.
 

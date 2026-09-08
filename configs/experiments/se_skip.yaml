@@ -1,0 +1,6 @@
+# base: ../default.yaml  —  GPU + BraTS
+base: ../default.yaml
+
+model: se_skip
+attention: se
+out_dir: outputs/se_skip
