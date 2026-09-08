@@ -1,5 +1,4 @@
-# CPU smoke config. Spatial size is tiny so a laptop can run a forward
-# pass and a few training steps. Use configs/default.yaml on GPU + BraTS.
+# Small synthetic run (no BraTS). Use configs/default.yaml for the paper recipe.
 seed: 0
 device: cpu
 in_channels: 4
@@ -15,4 +14,4 @@ size: [16, 16, 16]
 synthetic: true
 synthetic_n: 4
 num_workers: 0
-out_dir: outputs/cpu
+out_dir: outputs/small

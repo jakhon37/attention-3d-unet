@@ -11,8 +11,6 @@ outputs/
 checkpoints/
 *.pth
 *.pt
-*.nii
-*.nii.gz
 data/brats*/
 .idea/
 .vscode/

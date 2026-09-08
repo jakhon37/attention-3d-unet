@@ -34,7 +34,7 @@ def predict(model: Attention3DUNet, image: torch.Tensor, thresh: float = 0.5) ->
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--ckpt", required=True)
-    parser.add_argument("--config", default="configs/cpu.yaml")
+    parser.add_argument("--config", default="configs/small.yaml")
     args = parser.parse_args()
     cfg = load_config(args.config)
     device = torch.device(cfg.get("device", "cpu"))

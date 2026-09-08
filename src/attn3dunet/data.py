@@ -1,4 +1,4 @@
-"""BraTS-2020 loader and a synthetic stand-in for CPU tests."""
+"""BraTS-2020 loader and a synthetic dataset for tests."""
 
 from __future__ import annotations
 
@@ -25,7 +25,7 @@ def _ellipsoid(shape: Sequence[int], center, radii) -> np.ndarray:
 class SyntheticBraTS(Dataset):
     """Four-channel noisy MRI with an ellipsoid whole-tumor mask.
 
-    Enough to exercise the pipeline on CPU. Not a substitute for BraTS.
+    Enough to exercise the pipeline without BraTS. Not a substitute for BraTS.
     """
 
     def __init__(self, n: int = 8, size: Tuple[int, int, int] = (16, 16, 16), seed: int = 0) -> None:

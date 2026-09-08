@@ -1,4 +1,4 @@
-"""CPU-only checks. Full BraTS training is GPU work."""
+"""Unit tests on synthetic volumes."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""Dice, precision, recall, Hausdorff (§4.2). CPU-friendly on small volumes."""
+"""Dice, precision, recall, Hausdorff (§4.2)."""
 
 from __future__ import annotations
 
@@ -46,7 +46,7 @@ def hausdorff_distance(pred: torch.Tensor, target: torch.Tensor, thresh: float =
     t_pts = np.argwhere(t)
     if len(p_pts) == 0 or len(t_pts) == 0:
         return 0.0
-    # Pairwise Euclidean; fine for the tiny CPU test volumes.
+    # Pairwise Euclidean; fine for small test volumes.
     d = np.sqrt(((p_pts[:, None, :] - t_pts[None, :, :]) ** 2).sum(axis=2))
     return float(max(d.min(axis=1).max(), d.min(axis=0).max()))
 

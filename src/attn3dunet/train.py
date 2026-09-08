@@ -109,7 +109,7 @@ def train(cfg: Dict[str, Any]) -> Path:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Train Attention 3D U-Net")
-    parser.add_argument("--config", default="configs/cpu.yaml")
+    parser.add_argument("--config", default="configs/small.yaml")
     args = parser.parse_args()
     cfg = load_config(args.config)
     train(cfg)

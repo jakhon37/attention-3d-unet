@@ -1,5 +1,4 @@
-# Paper training recipe (Sensors 2022, §4.3) for GPU + BraTS-2020.
-# Input volumes are 240×240×155 with four MRI modalities.
+# Paper training recipe (Sensors 2022, §4.3). BraTS-2020, 240×240×155, four modalities.
 seed: 0
 device: cuda
 in_channels: 4
