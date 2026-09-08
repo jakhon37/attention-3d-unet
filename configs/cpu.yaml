@@ -1,0 +1,18 @@
+# CPU smoke config. Spatial size is tiny so a laptop can run a forward
+# pass and a few training steps. Use configs/default.yaml on GPU + BraTS.
+seed: 0
+device: cpu
+in_channels: 4
+out_channels: 1
+width_mult: 0.25
+fusion_channels: 16
+epochs: 3
+batch_size: 1
+lr: 0.01
+lr_factor: 0.2
+lr_patience: 5
+size: [16, 16, 16]
+synthetic: true
+synthetic_n: 4
+num_workers: 0
+out_dir: outputs/cpu

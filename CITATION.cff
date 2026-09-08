@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+title: Attention 3D U-Net with Multiple Skip Connections
+message: If you use this software, please cite the paper.
+authors:
+  - family-names: Nodirov
+    given-names: Jakhongir
+  - family-names: Abdusalomov
+    given-names: Akmalbek Bobomirzaevich
+  - family-names: Whangbo
+    given-names: Taeg Keun
+preferred-citation:
+  type: article
+  title: Attention 3D U-Net with Multiple Skip Connections for Segmentation of Brain Tumor Images
+  authors:
+    - family-names: Nodirov
+      given-names: Jakhongir
+    - family-names: Abdusalomov
+      given-names: Akmalbek Bobomirzaevich
+    - family-names: Whangbo
+      given-names: Taeg Keun
+  journal: Sensors
+  year: 2022
+  volume: 22
+  issue: 17
+  pages: "6501"
+  doi: 10.3390/s22176501

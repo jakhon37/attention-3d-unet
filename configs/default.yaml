@@ -1,0 +1,21 @@
+# Paper training recipe (Sensors 2022, §4.3) for GPU + BraTS-2020.
+# Input volumes are 240×240×155 with four MRI modalities.
+seed: 0
+device: cuda
+in_channels: 4
+out_channels: 1
+width_mult: 1.0
+fusion_channels: 64
+epochs: 200
+batch_size: 2
+lr: 0.01
+lr_factor: 0.2
+lr_patience: 5
+optimizer: adam
+loss: bce
+size: [128, 128, 128]
+brats_root: data/brats2020
+synthetic: false
+num_workers: 4
+out_dir: outputs/brats
+pretrained: true
