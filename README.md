@@ -4,12 +4,6 @@
 
 3D U-Net with a **MobileNetV2** encoder, **U-Net 3+** full-scale skip connections, and **attention gates**. Trained on **BraTS-2020** (T1, T1Gd, T2, FLAIR → whole-tumor mask): Adam, lr 0.01, ReduceLROnPlateau, batch size 2, BCE, 200 epochs.
 
-## History
-
-- **Sept 2021** — BraTS 2020 loading and slice viewing with nibabel ([2bd604b](https://github.com/jakhon37/attention-3d-unet/tree/2bd604b), now `experiments/brats_loading/`).
-- **Feb 2022** — `3dunt_simple`: the 3D U-Net and skip/attention variants behind the paper, with training logs and checkpoints ([19cf835](https://github.com/jakhon37/attention-3d-unet/tree/19cf835), now `experiments/`).
-- **Sept 2026** — the published architecture as a package (`src/attn3dunet/`), configs and tests.
-
 ## Architecture
 
 ```mermaid
@@ -91,7 +85,7 @@ Table 2 of the paper lists 52.3 million parameters and a prediction time of 55.7
 ```
 src/attn3dunet/           model, data, train, metrics
 configs/experiments/      paper + extra trials
-experiments/              2022 architecture scripts, 2021 BraTS loading
+experiments/              earlier architecture scripts
 data/                     sample NIfTI volumes
 tests/
 scripts/
