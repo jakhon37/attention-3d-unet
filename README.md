@@ -85,7 +85,8 @@ Table 2 of the paper lists 52.3 million parameters and a prediction time of 55.7
 ```
 src/attn3dunet/           model, data, train, metrics
 configs/experiments/      paper + extra trials
-experiments/              earlier architecture scripts
+*.py, output/             2022 architecture scripts and checkpoints
+brats_loading/            2021 BraTS loading scripts
 data/                     sample NIfTI volumes
 tests/
 scripts/
